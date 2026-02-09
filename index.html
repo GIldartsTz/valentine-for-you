@@ -3,182 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Jan (Artittaya) 💖</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@300;500&family=Pacifico&display=swap');
-
-        body {
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
-            font-family: 'Mitr', sans-serif;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Floating Hearts Background */
-        .bg-heart {
-            position: absolute;
-            color: rgba(255, 255, 255, 0.5);
-            animation: float 15s infinite linear;
-            z-index: 0;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
-        }
-
-        /* Container */
-        .container {
-            text-align: center;
-            z-index: 1;
-            position: relative;
-        }
-
-        /* Card Styles */
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            max-width: 90%;
-            width: 380px;
-            display: none; 
-            animation: popIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-
-        .photo-frame {
-            width: 180px;
-            height: 180px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            border: 6px solid #ff6b6b;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
-            background-color: #fff0f0;
-        }
-        
-        .photo-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        h1 {
-            color: #ff4757;
-            font-family: 'Pacifico', cursive;
-            font-size: 2.2rem;
-            margin-bottom: 5px;
-            text-shadow: 2px 2px 0px rgba(0,0,0,0.05);
-        }
-
-        h2 {
-            color: #ff6b81;
-            font-size: 1.1rem;
-            margin-top: 0;
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
-
-        p {
-            color: #57606f;
-            line-height: 1.6;
-            font-size: 1rem;
-            margin-bottom: 25px;
-        }
-
-        /* Start Button */
-        .start-btn {
-            background: white;
-            color: #ff4757;
-            padding: 18px 35px;
-            border-radius: 50px;
-            font-size: 1.4rem;
-            font-weight: bold;
-            cursor: pointer;
-            border: none;
-            box-shadow: 0 10px 25px rgba(255, 71, 87, 0.3);
-            transition: transform 0.2s;
-            animation: pulse 2s infinite;
-        }
-
-        .start-btn:active {
-            transform: scale(0.95);
-        }
-
-        .signature {
-            font-size: 0.9rem; 
-            color: #a4b0be; 
-            margin-top: 20px;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
-        }
-
-        @keyframes popIn {
-            0% { transform: scale(0); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-    </style>
+    <title>Artittaya's Universe 🪐</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;500&family=Parisienne&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div id="hearts-container"></div>
-
-    <div class="container">
-        <div id="initial-screen">
-            <button class="start-btn" onclick="openSurprise()">💌 ถึง... แจน (อาทิตยา)</button>
+    <section id="login-screen">
+        <div class="login-box">
+            <h1>🔒 Security Check</h1>
+            <p>กรุณายืนยันตัวตนเพื่อเข้าสู่จักรวาลของ "ตวง"</p>
+            <input type="password" id="password-input" placeholder="พิมพ์ชื่อเล่นภาษาอังกฤษ (ตัวเล็ก)">
+            <button onclick="checkPassword()">Access System</button>
+            <p id="error-msg"></p>
         </div>
+    </section>
 
-        <div class="card" id="surprise-card">
-            <div class="photo-frame">
-                <img src="jan.jpg" alt="Jan Artittaya" onerror="this.src='https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif'">
+    <main id="main-content" style="display: none;">
+        
+        <header>
+            <div class="logo">Tuang ❤️ Jan</div>
+            <div class="music-control" onclick="toggleMusic()">🎵 Play Music</div>
+        </header>
+
+        <section class="page active" id="home">
+            <div class="hero-text">
+                <h2>Welcome, Artittaya</h2>
+                <p>เราเดินทางร่วมกันมาแล้ว...</p>
+                <div id="timer">00 Days 00:00:00</div>
+                <p class="sub-text">และจะเดินทางต่อไปเรื่อยๆ นะ</p>
+                <button class="nav-btn" onclick="nextPage('gallery')">ดูความทรงจำของเรา 👇</button>
             </div>
-            
-            <h1>Happy Valentine's Day</h1>
-            <h2>แจ่นแจ๊น ❤️</h2>
-            
-            <p>
-                สุขสันต์วันวาเลนไทน์นะครับแจ่นแจีน<br>
-                ขอบคุณที่เข้ามาเป็นความสดใสให้ตวงนะ<br>
-                ขอให้แจนมีความสุขมากๆ ยิ้มเยอะๆ<br>
-                ตวงจะรักแจ่นแจ๊นตลอดไปเลย!
-            </p>
-            
-            <div class="signature">
-                With Love,<br>
-                <strong>ตวง</strong> 👨‍💻
+        </section>
+
+        <section class="page" id="gallery">
+            <h2>📸 Our Memory Lane</h2>
+            <div class="gallery-grid">
+                <div class="photo-card"><img src="images/jan1.jpg" alt="Jan 1"></div>
+                <div class="photo-card"><img src="images/jan2.jpg" alt="Jan 2"></div>
+                <div class="photo-card"><img src="images/jan3.jpg" alt="Jan 3"></div>
             </div>
-        </div>
-    </div>
+            <button class="nav-btn" onclick="nextPage('message')">มีความในใจจะบอก 👇</button>
+        </section>
 
-    <script>
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('bg-heart');
-            heart.innerHTML = '❤️';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.fontSize = Math.random() * 20 + 10 + 'px';
-            heart.style.animationDuration = Math.random() * 5 + 5 + 's';
-            document.getElementById('hearts-container').appendChild(heart);
-            setTimeout(() => { heart.remove(); }, 10000);
-        }
-        setInterval(createHeart, 300);
+        <section class="page" id="message">
+            <div class="letter-box">
+                <div class="profile-pic">
+                    <img src="images/jan1.jpg" alt="Jan">
+                </div>
+                <h1>Happy Valentine's Day</h1>
+                <p class="dear-name">ถึง คุณอาทิตยา (แจน)</p>
+                <p class="message-body">
+                    ขอบคุณที่เป็นความสุขของตวงในทุกๆ วันนะ<br>
+                    ขอโทษถ้ามีบางทีที่ทำตัวเด็กลงไปบ้าง (แต่ก็รักนะ)<br>
+                    ปีนี้ตั้งใจทำเว็บนี้ให้ เพราะอยากให้รู้ว่า<br>
+                    แจนสำคัญกับตวงมากๆ นะครับ<br>
+                    <br>
+                    อยู่เป็นกำลังใจให้กันแบบนี้ไปนานๆ นะ ❤️
+                </p>
+                <div class="signature">- ตวง (เอกรัตน์) -</div>
+            </div>
+        </section>
 
-        function openSurprise() {
-            document.getElementById('initial-screen').style.display = 'none';
-            document.getElementById('surprise-card').style.display = 'block';
-        }
-    </script>
+    </main>
+
+    <audio id="bg-music" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
 </body>
 </html>
