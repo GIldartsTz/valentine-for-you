@@ -3,67 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artittaya's Universe 🪐</title>
-    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;500&family=Parisienne&display=swap" rel="stylesheet">
+    <title>For Jan (Artittaya) 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;500&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <div class="bg-hearts" id="bg-hearts"></div>
+
     <section id="login-screen">
-        <div class="login-box">
-            <h1>🔒 Security Check</h1>
-            <p>กรุณายืนยันตัวตนเพื่อเข้าสู่จักรวาลของ "ตวง"</p>
-            <input type="password" id="password-input" placeholder="พิมพ์ชื่อเล่นภาษาอังกฤษ (ตัวเล็ก)">
-            <button onclick="checkPassword()">Access System</button>
+        <div class="login-card">
+            <div class="icon-lock"><i class="fas fa-heart-lock"></i></div>
+            <h1>ความลับของตวง & แจน</h1>
+            <p>กรอกชื่อเล่นเธอเป็นภาษาอังกฤษ (ตัวเล็ก) เพื่อปลดล็อก</p>
+            <input type="password" id="password-input" placeholder="Password..." onkeyup="if(event.key === 'Enter') checkPassword()">
+            <button onclick="checkPassword()">ปลดล็อกหัวใจ ❤️</button>
             <p id="error-msg"></p>
         </div>
     </section>
 
     <main id="main-content" style="display: none;">
         
-        <header>
-            <div class="logo">Tuang ❤️ Jan</div>
-            <div class="music-control" onclick="toggleMusic()">🎵 Play Music</div>
-        </header>
+        <nav>
+            <div class="logo">Tuang <i class="fas fa-heart"></i> Jan</div>
+            <button class="music-btn" onclick="toggleMusic()">🎵 Play Music</button>
+        </nav>
 
-        <section class="page active" id="home">
-            <div class="hero-text">
-                <h2>Welcome, Artittaya</h2>
-                <p>เราเดินทางร่วมกันมาแล้ว...</p>
-                <div id="timer">00 Days 00:00:00</div>
-                <p class="sub-text">และจะเดินทางต่อไปเรื่อยๆ นะ</p>
-                <button class="nav-btn" onclick="nextPage('gallery')">ดูความทรงจำของเรา 👇</button>
-            </div>
-        </section>
-
-        <section class="page" id="gallery">
-            <h2>📸 Our Memory Lane</h2>
-            <div class="gallery-grid">
-                <div class="photo-card"><img src="images/jan1.jpg" alt="Jan 1"></div>
-                <div class="photo-card"><img src="images/jan2.jpg" alt="Jan 2"></div>
-                <div class="photo-card"><img src="images/jan3.jpg" alt="Jan 3"></div>
-            </div>
-            <button class="nav-btn" onclick="nextPage('message')">มีความในใจจะบอก 👇</button>
-        </section>
-
-        <section class="page" id="message">
-            <div class="letter-box">
-                <div class="profile-pic">
-                    <img src="images/jan1.jpg" alt="Jan">
+        <section class="section" id="home">
+            <div class="content-box">
+                <h2>Our Love Journey 🚀</h2>
+                <p>เราจับมือกันมาแล้ว...</p>
+                <div id="timer-box">
+                    <div class="time-unit"><span id="days">0</span><br>Days</div>
+                    <div class="time-unit"><span id="hours">0</span><br>Hours</div>
+                    <div class="time-unit"><span id="minutes">0</span><br>Mins</div>
+                    <div class="time-unit"><span id="seconds">0</span><br>Secs</div>
                 </div>
-                <h1>Happy Valentine's Day</h1>
-                <p class="dear-name">ถึง คุณอาทิตยา (แจน)</p>
-                <p class="message-body">
-                    ขอบคุณที่เป็นความสุขของตวงในทุกๆ วันนะ<br>
-                    ขอโทษถ้ามีบางทีที่ทำตัวเด็กลงไปบ้าง (แต่ก็รักนะ)<br>
-                    ปีนี้ตั้งใจทำเว็บนี้ให้ เพราะอยากให้รู้ว่า<br>
-                    แจนสำคัญกับตวงมากๆ นะครับ<br>
-                    <br>
-                    อยู่เป็นกำลังใจให้กันแบบนี้ไปนานๆ นะ ❤️
-                </p>
-                <div class="signature">- ตวง (เอกรัตน์) -</div>
+                <p class="date-ref">Since 27 September 2023</p>
+                <button class="scroll-btn" onclick="scrollToSection('gallery')">ดูรูปของเรา 👇</button>
             </div>
         </section>
+
+        <section class="section" id="gallery">
+            <h2>📸 Gallery of Us</h2>
+            <div class="gallery-container">
+                <div class="polaroid">
+                    <img src="images/jan1.jpg" alt="Photo 1" onerror="this.src='https://placehold.co/300x400/pink/white?text=No+Image'">
+                    <p>ความทรงจำที่ 1</p>
+                </div>
+                <div class="polaroid">
+                    <img src="images/jan2.jpg" alt="Photo 2" onerror="this.src='https://placehold.co/300x400/pink/white?text=No+Image'">
+                    <p>ความทรงจำที่ 2</p>
+                </div>
+                <div class="polaroid">
+                    <img src="images/jan3.jpg" alt="Photo 3" onerror="this.src='https://placehold.co/300x400/pink/white?text=No+Image'">
+                    <p>ความทรงจำที่ 3</p>
+                </div>
+                <div class="polaroid">
+                    <img src="images/jan4.jpg" alt="Photo 4" onerror="this.src='https://placehold.co/300x400/pink/white?text=No+Image'">
+                    <p>ความทรงจำที่ 4</p>
+                </div>
+            </div>
+            <button class="scroll-btn" onclick="scrollToSection('letter')">อ่านความในใจ 👇</button>
+        </section>
+
+        <section class="section" id="letter">
+            <div class="letter-paper">
+                <h1>💌 ถึง แจน (อาทิตยา)</h1>
+                <div class="text-content">
+                    <p>
+                        สุขสันต์วันวาเลนไทน์นะคนเก่ง<br>
+                        2 ปีกว่าแล้วนะที่เราอยู่ด้วยกันมา (ตั้งแต่วันที่ 27 ก.ย. 66)<br>
+                        ขอบคุณที่อดทนและเข้าใจตวงมาตลอดนะ<br>
+                        <br>
+                        ขอโทษถ้าบางทีทำตัวไม่น่ารักไปบ้าง<br>
+                        แต่สัญญาว่าจะพยายามเป็นแฟนที่ดีขึ้นในทุกๆ วัน<br>
+                        รักแจนที่สุดในโลกเลยนะ ❤️
+                    </p>
+                </div>
+                <div class="sign">
+                    จาก... ตวง (เอกรัตน์)
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            Created with ❤️ by Tuang for Jan
+        </footer>
 
     </main>
 

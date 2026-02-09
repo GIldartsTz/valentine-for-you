@@ -1,30 +1,27 @@
-// --- ตั้งค่าวันที่เริ่มคบกันตรงนี้ (ปี, เดือน-1, วัน) ---
-// หมายเหตุ: เดือนเริ่มนับที่ 0 (มกรา=0, กุมภา=1, ...)
-const startDate = new Date(2023, 1, 14); // ตัวอย่าง: 14 กุมภา 2023 (แก้เป็นวันจริงของคุณตวงนะ!)
+// --- ตั้งค่าวันเริ่มคบ (ปี ค.ศ., เดือน 0-11, วัน) ---
+// เดือน 9 (กันยายน) ใน JavaScript คือเลข 8 ครับ (มกรา=0, กันยา=8)
+const startDate = new Date(2023, 8, 27); 
 
-// --- 1. ระบบ Login ---
 function checkPassword() {
-    const input = document.getElementById('password-input').value.toLowerCase();
-    const correctPassword = "jan"; // รหัสผ่านคือ jan
-
-    if (input === correctPassword) {
-        // ถ้ารหัสถูก
-        document.getElementById('login-screen').style.display = 'none';
-        document.getElementById('main-content').style.display = 'block';
+    const password = document.getElementById("password-input").value.toLowerCase();
+    const errorMsg = document.getElementById("error-msg");
+    
+    // รหัสผ่านคือ jan
+    if (password === "jan") {
+        document.getElementById("login-screen").style.opacity = "0";
+        setTimeout(() => {
+            document.getElementById("login-screen").style.display = "none";
+            document.getElementById("main-content").style.display = "block";
+        }, 500);
         
-        // เริ่มนับเวลาและเล่นอนิเมชั่น
         startTimer();
-        fadeInPage('home');
+        createHearts(); // เริ่มสร้างหัวใจลอย
     } else {
-        // ถ้ารหัสผิด
-        const errorMsg = document.getElementById('error-msg');
-        errorMsg.textContent = "รหัสผิด! บอกใบ้: ชื่อเล่นเธอ (ภาษาอังกฤษตัวเล็ก)";
-        input.classList.add('shake');
-        setTimeout(() => input.classList.remove('shake'), 500);
+        errorMsg.textContent = "รหัสผิด! ใบ้ให้: ชื่อเล่นตัวเอง (ภาษาอังกฤษ)";
+        errorMsg.style.color = "red";
     }
 }
 
-// --- 2. ระบบนับเวลา ---
 function startTimer() {
     setInterval(() => {
         const now = new Date();
@@ -35,37 +32,46 @@ function startTimer() {
         const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-        document.getElementById('timer').innerText = 
-            `${days} Days ${hours}h ${minutes}m ${seconds}s`;
+        document.getElementById("days").innerText = days;
+        document.getElementById("hours").innerText = hours;
+        document.getElementById("minutes").innerText = minutes;
+        document.getElementById("seconds").innerText = seconds;
     }, 1000);
 }
 
-// --- 3. ระบบเปลี่ยนหน้า ---
-function nextPage(pageId) {
-    // เลื่อนลงไปหา element นั้นแบบนุ่มนวล
-    document.getElementById(pageId).scrollIntoView({ 
-        behavior: 'smooth' 
-    });
-    
-    // หรือถ้าอยากให้ค่อยๆ โผล่ (Fade)
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById(pageId).classList.add('active');
+function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
 }
 
-function fadeInPage(pageId) {
-    setTimeout(() => {
-        document.getElementById(pageId).classList.add('active');
-    }, 100);
-}
-
-// --- 4. ระบบเพลง ---
 function toggleMusic() {
-    const audio = document.getElementById('bg-music');
+    const audio = document.getElementById("bg-music");
+    const btn = document.querySelector(".music-btn");
+    
     if (audio.paused) {
         audio.play();
-        document.querySelector('.music-control').innerText = "🔊 Playing...";
+        btn.innerHTML = "🔊 Pause Music";
     } else {
         audio.pause();
-        document.querySelector('.music-control').innerText = "🎵 Play Music";
+        btn.innerHTML = "🎵 Play Music";
     }
+}
+
+// สร้างหัวใจลอย Background
+function createHearts() {
+    const container = document.getElementById("bg-hearts");
+    
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.classList.add("floating-heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 20 + 10 + "px";
+        heart.style.animationDuration = Math.random() * 5 + 5 + "s";
+        
+        container.appendChild(heart);
+        
+        setTimeout(() => {
+            heart.remove();
+        }, 10000);
+    }, 500);
 }
