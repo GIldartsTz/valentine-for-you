@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Jan 💖</title>
+    <title>For Jan (Artittaya) 💖</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@300;500&family=Pacifico&display=swap');
 
@@ -40,34 +40,27 @@
             position: relative;
         }
 
-        /* Envelope Styles */
-        .envelope-wrapper {
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        .envelope-wrapper:hover {
-            transform: scale(1.05);
-        }
-        
+        /* Card Styles */
         .card {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             padding: 40px;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             max-width: 90%;
-            width: 400px;
-            display: none; /* ซ่อนไว้ก่อน */
-            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            width: 380px;
+            display: none; 
+            animation: popIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         .photo-frame {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             margin: 0 auto 20px;
             border-radius: 50%;
-            border: 5px solid #ff6b6b;
+            border: 6px solid #ff6b6b;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+            background-color: #fff0f0;
         }
         
         .photo-frame img {
@@ -79,50 +72,56 @@
         h1 {
             color: #ff4757;
             font-family: 'Pacifico', cursive;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: #ff6b81;
+            font-size: 1.1rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: 300;
         }
 
         p {
             color: #57606f;
             line-height: 1.6;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            margin-bottom: 25px;
         }
 
-        .btn {
-            background: #ff4757;
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            margin-top: 20px;
-            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
-            transition: all 0.3s;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 71, 87, 0.6);
-        }
-
-        /* Initial Button */
+        /* Start Button */
         .start-btn {
             background: white;
             color: #ff4757;
-            padding: 20px 40px;
+            padding: 18px 35px;
             border-radius: 50px;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: bold;
             cursor: pointer;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: none;
+            box-shadow: 0 10px 25px rgba(255, 71, 87, 0.3);
+            transition: transform 0.2s;
             animation: pulse 2s infinite;
+        }
+
+        .start-btn:active {
+            transform: scale(0.95);
+        }
+
+        .signature {
+            font-size: 0.9rem; 
+            color: #a4b0be; 
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
         }
 
         @keyframes pulse {
             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
         }
 
@@ -138,59 +137,47 @@
 
     <div class="container">
         <div id="initial-screen">
-            <button class="start-btn" onclick="openSurprise()">💌 ถึงคุณแจน (เปิดสิ)</button>
+            <button class="start-btn" onclick="openSurprise()">💌 ถึง... แจน (อาทิตยา)</button>
         </div>
 
         <div class="card" id="surprise-card">
             <div class="photo-frame">
-                <img src="jan.jpg" alt="My Beautiful Jan" onerror="this.src='https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif'">
+                <img src="jan.jpg" alt="Jan Artittaya" onerror="this.src='https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif'">
             </div>
-            <h1>Happy Valentine's Day!</h1>
+            
+            <h1>Happy Valentine's Day</h1>
+            <h2>แจ่นแจ๊น ❤️</h2>
+            
             <p>
-                ถึงแจน...<br>
-                ขอบคุณที่อยู่ข้างกันนะ ปีนี้และปีต่อๆ ไป<br>
-                ขอให้เรามีความสุขด้วยกันแบบนี้ตลอดไปเลย<br>
-                รักนะคนเก่ง ❤️
+                สุขสันต์วันวาเลนไทน์นะครับแจ่นแจีน<br>
+                ขอบคุณที่เข้ามาเป็นความสดใสให้ตวงนะ<br>
+                ขอให้แจนมีความสุขมากๆ ยิ้มเยอะๆ<br>
+                ตวงจะรักแจ่นแจ๊นตลอดไปเลย!
             </p>
-            <p style="font-size: 0.9rem; color: #a4b0be; margin-top: 15px;">จาก... เอกราช (เด็กคอมฯ สุดหล่อ)</p>
+            
+            <div class="signature">
+                With Love,<br>
+                <strong>ตวง</strong> 👨‍💻
+            </div>
         </div>
     </div>
 
     <script>
-        // สร้างหัวใจลอย background
         function createHeart() {
             const heart = document.createElement('div');
             heart.classList.add('bg-heart');
             heart.innerHTML = '❤️';
             heart.style.left = Math.random() * 100 + 'vw';
             heart.style.fontSize = Math.random() * 20 + 10 + 'px';
-            heart.style.animationDuration = Math.random() * 5 + 5 + 's'; // 5-10s
-            
+            heart.style.animationDuration = Math.random() * 5 + 5 + 's';
             document.getElementById('hearts-container').appendChild(heart);
-
-            setTimeout(() => {
-                heart.remove();
-            }, 10000);
+            setTimeout(() => { heart.remove(); }, 10000);
         }
-
         setInterval(createHeart, 300);
 
-        // ฟังก์ชันเปิดการ์ด
         function openSurprise() {
             document.getElementById('initial-screen').style.display = 'none';
             document.getElementById('surprise-card').style.display = 'block';
-            
-            // เล่นเอฟเฟกต์พลุ (ถ้าอยากใส่เพิ่ม)
-            confettiEffect();
-        }
-
-        // เอฟเฟกต์พลุกระดาษ (Simple JS implementation)
-        function confettiEffect() {
-            // โค้ดส่วนนี้ทำเอฟเฟกต์น่ารักๆ เพิ่มเติมได้
-            const colors = ['#ff4757', '#2ed573', '#1e90ff', '#ffa502'];
-            for(let i=0; i<50; i++) {
-                // (สามารถเพิ่มไลบรารี confetti.js ได้ถ้าต้องการความอลังการกว่านี้)
-            }
         }
     </script>
 </body>
